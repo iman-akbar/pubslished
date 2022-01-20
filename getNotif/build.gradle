@@ -1,7 +1,16 @@
 plugins {
     id 'com.android.library'
-//    id 'maven-publish'
+    id 'maven-publish'
 }
+repositories {
+    mavenCentral()
+    google()
+    jcenter()
+    maven { url "https://jitpack.io" }
+}
+
+group = 'com.github.iman-akbar'
+version = '1.0'
 
 android {
     compileSdk 31
@@ -39,16 +48,16 @@ dependencies {
 }
 //apply plugin: 'com.github.dcendents.android-maven'
 //group='com.github.iman-akbar'
-//afterEvaluate {
-//    publishing{
-//        publications {
-//            release(MavenPublication) {
-//                from components.release
-//
-//                groupId = 'com.github.iman-akbar'
-//                artifactId = 'getNotif'
-//                version = '1.0'
-//            }
-//        }
-//    }
-//}
+afterEvaluate {
+    publishing{
+        publications {
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.iman-akbar'
+                artifactId = 'getNotif'
+                version = '1.0'
+            }
+        }
+    }
+}
